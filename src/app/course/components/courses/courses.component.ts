@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Course } from '../models/course.model';
-import { CoursesService } from '../services/courses.service';
+import { Course } from '../../../models/course.model';
+import { CoursesService } from '../../../core/services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -17,6 +17,6 @@ export class CoursesComponent implements OnInit {
   }
 
   addCourseSeen(id: string): void {
-    console.log('seen from app: ', id);
+    console.log('seen from course module: ', id);
   }
 }
