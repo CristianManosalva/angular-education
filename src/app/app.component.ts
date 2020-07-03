@@ -39,7 +39,7 @@ export class AppComponent {
     this.items.push('nuev');
   }
 
-  addCourseSeen(id: string) {
+  addCourseSeen(id: string): void {
     console.log('seen from app: ', id);
   }
 }
