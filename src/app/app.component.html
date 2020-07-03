@@ -1,14 +1,1 @@
-<input type="text" [(ngModel)]="title" />
-{{ title }}
-
-<button (click)="addItem()">
-  Add item
-</button>
-
-<div class="course-grid">
-  <app-course
-    *ngFor="let course of courses; index as i"
-    (courseSeen)="addCourseSeen($event)"
-    [course]="course"
-  ></app-course>
-</div>
+<router-outlet> </router-outlet>
