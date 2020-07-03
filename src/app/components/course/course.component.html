@@ -1,4 +1,4 @@
-<div (click)="seen(course.id)">
+<div (click)="seen(course.id)" [routerLink]="['/course-detail', course.id]">
   <img [src]="course.picture" [alt]="course.title" />
   <h3>{{ course.title }}</h3>
   <ul>

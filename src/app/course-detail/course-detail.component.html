@@ -1,1 +1,11 @@
-<p>course-detail works!</p>
+<div>
+  <img [src]="course.picture" [alt]="course.title" />
+  <h3>{{ course.title }}</h3>
+  <ul>
+    <li *ngFor="let tag of course.tags">
+      <span>{{ tag }}</span>
+    </li>
+  </ul>
+  <p>{{ course.description }}</p>
+  <span>{{ course.dateLine }}</span>
+</div>

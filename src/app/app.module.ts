@@ -10,9 +10,23 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { CoursesComponent } from './courses/courses.component';
 import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, HomeComponent, CourseDetailComponent, CoursesComponent, DemoComponent, PageNotFoundComponent],
+  declarations: [
+    AppComponent,
+    CourseComponent,
+    HomeComponent,
+    CourseDetailComponent,
+    CoursesComponent,
+    DemoComponent,
+    PageNotFoundComponent,
+    LayoutComponent,
+    HeaderComponent,
+    FooterComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
