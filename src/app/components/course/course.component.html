@@ -1,0 +1,10 @@
+<div (click)="seen(course.id)">
+  <img [src]="course.picture" [alt]="course.title" />
+  <h3>{{ course.title }}</h3>
+  <ul>
+    <li *ngFor="let tag of course.tags">
+      <span>{{ tag }}</span>
+    </li>
+  </ul>
+  <span>{{ course.dateLine }}</span>
+</div>
