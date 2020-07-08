@@ -1,16 +1,47 @@
-<mat-card
-  class="example-card"
-  (click)="seen(course.id)"
-  [routerLink]="['/courses', course.id]"
->
+<mat-card class="example-card">
+  <div class="crop-image">
+    <img [src]="course.picture" [alt]="course.title" />
+  </div>
+
   <mat-card-header>
     <mat-card-title>{{ course.title }}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image [src]="course.picture" [alt]="course.title" />
-  <ul>
-    <li *ngFor="let tag of course.tags">
-      <span>{{ tag }}</span>
-    </li>
-  </ul>
-  <span>{{ course.dateLine }}</span>
+  <mat-card-content>
+    {{ course.description | slice: 0:50 }}...
+  </mat-card-content>
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip
+        class="category-label"
+        color="green"
+        *ngFor="let tag of course.tags"
+        [style.background-color]="'powderblue'"
+        >{{ tag }}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+
+  <mat-card-subtitle class="center-center"
+    ><mat-icon class="calendar-icon">
+      event_available
+    </mat-icon>
+    {{ course.dateLine }}</mat-card-subtitle
+  >
+
+  <div class="container-actions">
+    <button
+      (click)="seen(course.id)"
+      [routerLink]="['/courses', course.id]"
+      mat-raised-button
+      color="primary"
+    >
+      Ver Contenido
+    </button>
+  </div>
 </mat-card>
+
+<!-- <mat-card
+  class="example-card"
+  (click)="seen(course.id)"
+  [routerLink]="['/courses', course.id]"
+> -->

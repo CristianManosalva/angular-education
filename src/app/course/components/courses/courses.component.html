@@ -1,7 +1,11 @@
-<div class="course-grid">
-  <app-course
-    *ngFor="let course of courses; index as i"
-    (courseSeen)="addCourseSeen($event)"
-    [course]="course"
-  ></app-course>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="courses_list_container">
+      <app-course
+        *ngFor="let course of courses; index as i"
+        (courseSeen)="addCourseSeen($event)"
+        [course]="course"
+      ></app-course>
+    </div>
+  </div>
 </div>

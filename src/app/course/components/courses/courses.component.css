@@ -1,0 +1,5 @@
+.courses_list_container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}

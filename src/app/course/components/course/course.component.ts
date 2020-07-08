@@ -19,4 +19,17 @@ export class CourseComponent implements OnInit {
     console.log('seen id: ', id);
     this.courseSeen.emit(this.course.id);
   }
+
+  ramdomColor(): string {
+    return [
+      'aquamarine',
+      'deepskyblue',
+      'lightseagreen',
+      'yellowgreen',
+      'orange',
+      'lightblue',
+      'powderblue',
+      'mistyrose',
+    ][Math.floor(Math.random() * 8)];
+  }
 }
