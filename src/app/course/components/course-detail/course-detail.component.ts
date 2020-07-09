@@ -19,7 +19,14 @@ export class CourseDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
-      this.course = this.coursesService.getCourse(id);
+      this.fetchCourse(id);
+    });
+  }
+
+  fetchCourse(id: number): void {
+    this.coursesService.getCourse(id).subscribe((response) => {
+      this.course = response;
+      console.log('el curso: ', this.course);
     });
   }
 }

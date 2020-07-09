@@ -1,11 +1,48 @@
-<div>
-  <img [src]="course.picture" [alt]="course.title" />
-  <h3>{{ course.title }}</h3>
-  <ul>
-    <li *ngFor="let tag of course.tags">
-      <span>{{ tag }}</span>
-    </li>
-  </ul>
-  <p>{{ course.description }}</p>
-  <span>{{ course.dateLine }}</span>
+<div class="custom-container" *ngIf="course">
+  <!-- <div class="row"> -->
+  <section>
+    <div class="banner-crop-image">
+      <img [src]="course.picture" [alt]="course.title" />
+    </div>
+  </section>
+  <!-- </div> -->
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <section class="course_detail_header_container">
+          <h1>{{ course.title }}</h1>
+          <div class="center-center">
+            <mat-icon class="calendar-icon">
+              event_available
+            </mat-icon>
+            {{ course.dateLine }} fecha limite de acceso
+          </div>
+        </section>
+        <section class="course_detail_description_container">
+          <h3>Acerca del curso</h3>
+          <p class="course_detail_description-text">{{ course.description }}</p>
+        </section>
+        <section class="course_detail_content_container">
+          <a [href]="course.content" target="_blank"
+            ><button mat-raised-button color="primary">
+              Ver Contenido
+            </button></a
+          >
+        </section>
+        <section class="course_detail_tags_container">
+          <mat-chip-list>
+            <mat-chip
+              class="category-label"
+              *ngFor="let tag of course.tags"
+              [style.background-color]="'powderblue'"
+              >{{ tag.name }} </mat-chip
+            ><mat-icon class="course_detail_tags-icon">
+              local_offer
+            </mat-icon>
+          </mat-chip-list>
+        </section>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,50 @@
+.banner-crop-image {
+  display: block;
+  max-height: 250px;
+  height: 250px;
+  width: 100%;
+}
+
+.banner-crop-image img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  max-width: 100%;
+}
+
+.course_detail_header_container {
+  margin-bottom: 2em;
+}
+
+.center-center {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.calendar-icon {
+  margin-right: 5px;
+}
+
+.course_detail_description_container {
+  margin-bottom: 2em;
+}
+
+.course_detail_description-text {
+  color: rgb(24, 27, 50);
+}
+
+.course_detail_content_container {
+  margin-bottom: 2em;
+}
+
+.course_detail_tags-icon {
+  margin-left: 5px;
+}
+
+.category-label {
+  font-size: 12px;
+  text-transform: capitalize;
+  min-height: 20px;
+}

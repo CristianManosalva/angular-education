@@ -9,13 +9,13 @@ import { Course } from '../../../models/course.model';
 })
 export class CourseComponent implements OnInit {
   @Input() course: Course;
-  @Output() courseSeen: EventEmitter<string> = new EventEmitter();
+  @Output() courseSeen: EventEmitter<number> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  seen(id: string): void {
+  seen(id: number): void {
     console.log('seen id: ', id);
     this.courseSeen.emit(this.course.id);
   }

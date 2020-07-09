@@ -9,9 +9,31 @@
   grid-template-columns: repeat(1, 1fr);
 }
 
+.custom-container {
+  width: calc(100% - 40px);
+  max-width: 1152px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 576px) {
   .course-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    width: calc(100% - 64px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-container {
+    width: calc(100% - 184px);
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
