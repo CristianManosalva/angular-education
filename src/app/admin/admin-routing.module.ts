@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CourseFormComponent } from './components/course-form/course-form.component';
+import { CourseAdminComponent } from './components/course-admin/course-admin.component';
 import { NavComponent } from './components/nav/nav.component';
 const routes: Routes = [
   {
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: NavComponent,
     children: [
       {
-        path: 'create',
-        component: CourseFormComponent,
+        path: 'course',
+        component: CourseAdminComponent,
       },
     ],
   },

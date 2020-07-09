@@ -6,6 +6,7 @@ export interface Tag {
 export interface Course {
   picture: string;
   title: string;
+  category_id: number;
   description: string;
   content: string;
   tags: Array<Tag>;

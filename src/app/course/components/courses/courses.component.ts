@@ -21,7 +21,7 @@ export class CoursesComponent implements OnInit {
     console.log('seen from course module: ', id);
   }
 
-  fetchCourses() {
+  fetchCourses(): void {
     this.coursesService
       .getAll()
       .subscribe((response) => (this.courses = response));
