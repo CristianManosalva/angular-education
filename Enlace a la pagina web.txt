@@ -1,0 +1,4 @@
+https://angular-education.vercel.app
+
+La aplicacion esta desplegada en server less lambda function, de el provedor vercel.
+El frontend y el backend estan desplegados en este mismo proveedor. la base de datos se encuentra en aws rds.
