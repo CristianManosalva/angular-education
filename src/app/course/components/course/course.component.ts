@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import * as moment from 'moment';
 import { Course } from '../../../models/course.model';
 
 @Component({
@@ -13,7 +13,15 @@ export class CourseComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  timeCounter;
+  available = false;
+
+  ngOnInit(): void {
+    this.timeCounter = moment(this.course.dateLine, 'YYYY-MM-DD').fromNow(true);
+    const date = moment(this.course.dateLine, 'YYYY-MM-DD');
+    const today = moment();
+    this.available = date >= today;
+  }
 
   seen(id: number): void {
     console.log('seen id: ', id);

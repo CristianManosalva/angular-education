@@ -64,8 +64,16 @@
   align-items: center;
 }
 
+.event-end {
+  color: red;
+}
+
 .calendar-icon {
   margin-right: 5px;
+}
+
+.mr-2 {
+  margin-right: 4px;
 }
 
 .tags_container {
