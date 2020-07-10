@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -10,7 +10,7 @@ import { Course, Tag, Category } from './../../../models/course.model';
   templateUrl: './course-form.component.html',
   styleUrls: ['./course-form.component.css'],
 })
-export class CourseFormComponent {
+export class CourseFormComponent implements OnInit {
   addressForm = this.fb.group({
     title: [null, Validators.required],
     description: [null, Validators.required],
@@ -35,6 +35,10 @@ export class CourseFormComponent {
     private fb: FormBuilder,
     private coursesService: CoursesService
   ) {}
+
+  ngOnInit(): void {
+    this.fetchcategories();
+  }
 
   onSubmit(): void {
     if (this.addressForm.valid) {
@@ -82,5 +86,11 @@ export class CourseFormComponent {
         }, 3000);
       }
     });
+  }
+
+  fetchcategories(): void {
+    this.coursesService
+      .getAllCategories()
+      .subscribe((response) => (this.states = response));
   }
 }

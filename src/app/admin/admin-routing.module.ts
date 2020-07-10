@@ -9,7 +9,7 @@ const routes: Routes = [
     component: NavComponent,
     children: [
       {
-        path: 'course',
+        path: '',
         component: CourseAdminComponent,
       },
     ],
