@@ -63,12 +63,12 @@ export class HomeComponent implements OnInit {
         'https://www.parkmycloud.com/wp-content/uploads/Amazon-RDS-1.png',
       description: 'Servicio de Bases de Datos Relacionales de AWS',
     },
-    {
-      name: '',
-      version: '',
-      picture: '',
-      description: '',
-    },
+    // {
+    //   name: '',
+    //   version: '',
+    //   picture: '',
+    //   description: '',
+    // },
   ];
   constructor() {}
 

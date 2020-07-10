@@ -1,4 +1,16 @@
 <div class="custom-container">
+  <section class="home_banner_secction">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="home_banner_container">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C4E1BAQHShTBVBSPB9w/company-background_10000/0?e=2159024400&v=beta&t=gY7eTjPq7UrflaMt8oQN9o2FYf6quC219emNR0YrBsE"
+            alt="Banner"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="home_technologies_secction">
     <div class="row">
       <div class="col-xs-12">
@@ -8,6 +20,81 @@
         <div class="home_technologies_container">
           <app-tech-card *ngFor="let tech of technologies" [tech]="tech">
           </app-tech-card>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home_performance_secction">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="home_performance_secction-title">
+          <h2>Patrones de Diseño</h2>
+        </div>
+        <div class="home_performance_container">
+          <h3>App Modular</h3>
+          <p>
+            La aplicacion se desarrolo bajo el principio de modularidad. La app
+            esta dividida en tres modulos, el modulo courses que agrupa todas
+            las funcinalidades relacionadas a la consulta de estos. El modulo
+            admin que agrupa las funciones de gestion del contenido. Por ultimo
+            el modulo de home, que es la seccion encargada de comunicar las
+            instrucciones de la prueba.
+          </p>
+        </div>
+        <div class="home_performance_container">
+          <h3>Lazy Loading</h3>
+          <p>
+            Se aplico el patron de diseño Lazy Load para retrasar la carga o
+            inicialización de un modulo hasta el momento de su utilización. De
+            esta manera dando una respuesta muchas mas rapida en sus cargas
+            iniciales.
+          </p>
+        </div>
+        <div class="home_performance_container">
+          <h3>Principio de responsabilidad única</h3>
+          <p>
+            Se aplico este patron teniendo en mente futuras actualizaciones.
+            Tener un codigo corto y legible, permite actulizar con alta rapidez.
+            Identificar un error es mucho mas sencillo, ya que el fallo se
+            produce en una unica responsabilidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home_performance_secction">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="home_performance_secction-title">
+          <h2>Instrucciones</h2>
+        </div>
+        <div class="home_performance_container">
+          <h3>Gestion del contenido</h3>
+          <p>
+            Ingresa al modulo del administrador, donde pueden crear o eliminar
+            contenidos.
+            <a routerLink="../admin" mat-button color="primary">
+              Ir como admin
+            </a>
+          </p>
+        </div>
+        <div class="home_performance_container">
+          <h3>Contenidos vistos</h3>
+          <p>
+            Los contenidos vistos se identifican por el
+            <strong>icono de un ojo</strong> en la parte superior derecha de
+            cada card. Esto se observa en la seccion de cursos. <br /><br />
+            Para lograr esta funcion, se guarda el id de cada contenido en un
+            arreglo alojado en el LocalStorage del navegador.
+          </p>
+        </div>
+        <div class="home_performance_container">
+          <h3>Fecha Limite</h3>
+          <p>
+            Los contenidos tinen una fecha limite para ser consultados. Esta
+            funcion se implento con la libreria <strong>moment.js</strong> para
+            comparar fechas y actualizar las directivas correspondientes.
+          </p>
         </div>
       </div>
     </div>
