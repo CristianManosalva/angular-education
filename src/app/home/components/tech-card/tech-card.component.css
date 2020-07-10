@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  /* margin: 0 5px 5px 0; */
+}
+
+.example-card {
+  margin: 0 8px 8px 0;
+}
+
+.crop-image {
+  display: block;
+  max-height: 100px;
+  height: 100px;
+  width: 100%;
+  position: relative;
+}
+
+.crop-image img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  :host {
+    width: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  :host {
+    width: 33.3%;
+    max-width: 33.3%;
+  }
+}

@@ -1,0 +1,5 @@
+.home_technologies_container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
