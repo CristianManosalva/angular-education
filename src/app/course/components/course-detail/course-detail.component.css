@@ -23,8 +23,20 @@
   font-size: 16px;
 }
 
+.event-end {
+  color: red;
+}
+
+.event-on {
+  color: green;
+}
+
 .calendar-icon {
   margin-right: 5px;
+}
+
+.mr-2 {
+  margin-right: 4px;
 }
 
 .course_detail_description_container {

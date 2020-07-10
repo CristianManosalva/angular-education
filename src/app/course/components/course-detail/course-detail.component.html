@@ -12,11 +12,17 @@
       <div class="box">
         <section class="course_detail_header_container">
           <h1>{{ course.title }}</h1>
-          <div class="center-center">
+          <div class="center-center event-on" *ngIf="available">
             <mat-icon class="calendar-icon">
               event_available
             </mat-icon>
-            {{ course.dateLine }} fecha limite de acceso
+            El contenido estará disponible por {{ timeCounter }} mas
+          </div>
+          <div class="center-center event-end" *ngIf="!available">
+            <mat-icon class="calendar-icon">
+              event_busy
+            </mat-icon>
+            El contenido dejo de estar disponible hace {{ timeCounter }}
           </div>
         </section>
         <section class="course_detail_description_container">
@@ -24,11 +30,26 @@
           <p class="course_detail_description-text">{{ course.description }}</p>
         </section>
         <section class="course_detail_content_container">
-          <a [href]="course.content" target="_blank"
+          <a *ngIf="available" [href]="course.content" target="_blank"
             ><button mat-raised-button color="primary">
+              <mat-icon class="mr-2">
+                web
+              </mat-icon>
               Ver Contenido
             </button></a
           >
+
+          <button
+            *ngIf="!available"
+            [disabled]="!available"
+            mat-raised-button
+            color="primary"
+          >
+            <mat-icon class="mr-2">
+              web
+            </mat-icon>
+            Ver Contenido
+          </button>
         </section>
         <section class="course_detail_tags_container">
           <mat-chip-list>

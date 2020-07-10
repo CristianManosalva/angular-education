@@ -68,6 +68,10 @@
   color: red;
 }
 
+.event-on {
+  color: green;
+}
+
 .calendar-icon {
   margin-right: 5px;
 }
