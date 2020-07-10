@@ -3,8 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { CoursesService } from './../../../core/services/courses.service';
-import { Course } from './../../../models/course.model';
-import { Tag } from './../../../models/course.model';
+import { Course, Tag, Category } from './../../../models/course.model';
 
 @Component({
   selector: 'app-course-form',
@@ -22,10 +21,7 @@ export class CourseFormComponent {
     // tags: [[], Validators.required],
   });
 
-  states = [
-    { name: 'Tegnologia', id: 1 },
-    { name: 'Coding', id: 2 },
-  ];
+  states = [];
   visible = true;
   selectable = true;
   removable = true;
