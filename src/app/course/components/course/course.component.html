@@ -1,5 +1,12 @@
 <mat-card class="example-card">
   <div class="crop-image">
+    <mat-icon
+      matTooltip="Contenido visto"
+      matTooltipPosition="below"
+      class="icon-seen"
+      *ngIf="viewed"
+      >visibility</mat-icon
+    >
     <img [src]="course.picture" [alt]="course.title" />
   </div>
 
