@@ -34,7 +34,9 @@
   <!-- DateLine Column -->
   <ng-container matColumnDef="dateLine">
     <mat-header-cell *matHeaderCellDef> Fecha Limite </mat-header-cell>
-    <mat-cell *matCellDef="let course"> {{ course.dateLine }} </mat-cell>
+    <mat-cell *matCellDef="let course">
+      {{ parsingDate(course.dateLine) }}
+    </mat-cell>
   </ng-container>
 
   <!-- Actions Column -->

@@ -20,6 +20,8 @@ export class CourseDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    moment.locale('es');
+
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
       this.fetchCourse(id);

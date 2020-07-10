@@ -13,7 +13,7 @@ import { Tag } from './../../../models/course.model';
 })
 export class CourseFormComponent {
   addressForm = this.fb.group({
-    title: null,
+    title: [null, Validators.required],
     description: [null, Validators.required],
     content: [null, Validators.required],
     picture: [null, Validators.required],
@@ -26,14 +26,14 @@ export class CourseFormComponent {
     { name: 'Tegnologia', id: 1 },
     { name: 'Coding', id: 2 },
   ];
-  tsts = false;
-
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
   tags: Tag[] = [{ name: 'Programacion' }];
+  creating = false;
+  succes = false;
 
   constructor(
     private fb: FormBuilder,
@@ -41,8 +41,10 @@ export class CourseFormComponent {
   ) {}
 
   onSubmit(): void {
-    // this.createCourse();
-    this.tsts = true;
+    if (this.addressForm.valid) {
+      this.creating = true;
+      this.createCourse();
+    }
   }
 
   add(event: MatChipInputEvent): void {
@@ -72,8 +74,17 @@ export class CourseFormComponent {
     const course: Course = this.addressForm.value;
     course.tags = this.tags;
     console.log('Course: ', course);
-    this.coursesService
-      .createCourse(course)
-      .subscribe((response) => console.log('reponse for create', response));
+    this.coursesService.createCourse(course).subscribe((response) => {
+      // this.addressForm.reset();
+      // this.addressForm.clearValidators();
+      this.creating = false;
+      if (response) {
+        this.succes = true;
+        setTimeout(() => {
+          this.succes = false;
+          document.getElementById('button-close-course-form').click();
+        }, 3000);
+      }
+    });
   }
 }

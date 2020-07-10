@@ -120,16 +120,27 @@
         </div>
       </div>
     </mat-dialog-content>
+    <div *ngIf="succes" class="succes-container">
+      <p>Contenido creado con exito</p>
+    </div>
     <mat-dialog-actions align="end">
       <button
         mat-raised-button
         color="primary"
-        (click)="createCourse()"
+        (click)="onSubmit()"
         type="submit"
       >
-        Crear
+        <mat-spinner
+          *ngIf="creating"
+          style="margin: 5px 0;"
+          color="accent"
+          [diameter]="25"
+        ></mat-spinner>
+        <span *ngIf="!creating">Crear</span>
       </button>
-      <button mat-button [mat-dialog-close]="tsts">Cerrar</button>
+      <button id="button-close-course-form" mat-button mat-dialog-close>
+        Cerrar
+      </button>
     </mat-dialog-actions>
   </div>
 </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as moment from 'moment';
 import { Course } from './../../../models/course.model';
 import { CoursesService } from './../../../core/services/courses.service';
 
@@ -46,5 +46,11 @@ export class CourseTableComponent implements OnInit {
       }
       console.log('index: ', index);
     }
+  }
+
+  parsingDate(date: string): string {
+    moment.locale('es');
+    const time = moment(date, 'YYYY-MM-DD');
+    return time.format('MMM D YYYY');
   }
 }

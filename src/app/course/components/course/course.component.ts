@@ -17,6 +17,7 @@ export class CourseComponent implements OnInit {
   available = false;
 
   ngOnInit(): void {
+    moment.locale('es');
     this.timeCounter = moment(this.course.dateLine, 'YYYY-MM-DD').fromNow(true);
     const date = moment(this.course.dateLine, 'YYYY-MM-DD');
     const today = moment();
