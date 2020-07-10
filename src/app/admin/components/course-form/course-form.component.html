@@ -121,7 +121,14 @@
       </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="createCourse()"
+        type="submit"
+      >
+        Crear
+      </button>
       <button mat-button [mat-dialog-close]="tsts">Cerrar</button>
     </mat-dialog-actions>
   </div>

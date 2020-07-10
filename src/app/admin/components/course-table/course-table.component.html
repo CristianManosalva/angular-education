@@ -1,0 +1,63 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Picture Column -->
+  <ng-container matColumnDef="picture">
+    <mat-header-cell *matHeaderCellDef> Imagen </mat-header-cell>
+    <mat-cell *matCellDef="let course">
+      <div class="crop-image">
+        <img [src]="course.picture" [alt]="course.title" />
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+    <mat-cell *matCellDef="let course"> {{ course.title }} </mat-cell>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+    <mat-cell *matCellDef="let course"> {{ course.category.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Content Column -->
+  <ng-container matColumnDef="content">
+    <mat-header-cell *matHeaderCellDef> Contenido </mat-header-cell>
+    <mat-cell *matCellDef="let course">
+      <a class="content" [href]="course.content" target="_blank">
+        <mat-icon>web</mat-icon></a
+      >
+    </mat-cell>
+  </ng-container>
+
+  <!-- DateLine Column -->
+  <ng-container matColumnDef="dateLine">
+    <mat-header-cell *matHeaderCellDef> Fecha Limite </mat-header-cell>
+    <mat-cell *matCellDef="let course"> {{ course.dateLine }} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let course">
+      <button
+        (click)="deleteCourses(course.id)"
+        mat-mini-fab
+        color="primary"
+        aria-label="delete icon"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <!-- <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+    <mat-cell *matCellDef="let course"> {{ course.symbol }} </mat-cell>
+  </ng-container> -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

@@ -1,11 +1,15 @@
 <div class="custom-container">
   <div class="row">
-    <button mat-raised-button (click)="openDialog()">Crear Curso</button>
+    <section class="actions_container">
+      <div class="col-xs-12">
+        <button mat-raised-button (click)="openDialog()">Crear Curso</button>
+      </div>
+    </section>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
-      Table
+      <app-course-table></app-course-table>
     </div>
   </div>
 </div>

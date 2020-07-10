@@ -2,16 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { CourseFormComponent } from './../course-form/course-form.component';
 import { MatDialog } from '@angular/material/dialog';
 
+import { CoursesService } from './../../../core/services/courses.service';
+import { Course } from './../../../models/course.model';
+
 @Component({
   selector: 'app-course-admin',
   templateUrl: './course-admin.component.html',
   styleUrls: ['./course-admin.component.css'],
 })
 export class CourseAdminComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  course: Course[] = [];
+
+  constructor(
+    public dialog: MatDialog,
+    private coursesService: CoursesService
+  ) {}
 
   ngOnInit(): void {
-    this.openDialog();
+    // this.openDialog();
   }
 
   openDialog(): void {
@@ -22,5 +30,11 @@ export class CourseAdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  fetchCourses(): void {
+    this.coursesService
+      .getAll()
+      .subscribe((response) => (this.course = response));
   }
 }

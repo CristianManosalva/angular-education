@@ -33,7 +33,7 @@ export class CourseFormComponent {
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
-  tags: Tag[] = [{ id: 1, name: 'Programacion' }];
+  tags: Tag[] = [{ name: 'Programacion' }];
 
   constructor(
     private fb: FormBuilder,
@@ -51,7 +51,7 @@ export class CourseFormComponent {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.tags.push({ id: 1, name: value.trim() });
+      this.tags.push({ name: value.trim() });
     }
 
     // Reset the input value
@@ -69,24 +69,9 @@ export class CourseFormComponent {
   }
 
   createCourse(): void {
-    // const course: Course = {
-    //   id: 1,
-    //   picture:
-    //     'https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/internacionalizacion-en-django-t1.png',
-    //   dateLine: '2020-07-06',
-    //   description:
-    //     'Hola amigos en este artículo, aprenderás a utilizar internacionalización en tu sistema web con la finalidad que una persona elija el idioma a traducir y de esta manera llegar a más público, para ello veamos algunos conceptos',
-    //   title: 'Django',
-    //   content: 'https://devcode.la/tutoriales/internacionalizacion-en-django/',
-    //   tags: [
-    //     { id: 1, name: 'Programacion' },
-    //     { id: 1, name: 'python' },
-    //     { id: 1, name: 'django' },
-    //   ],
-    //   category_id: 2,
-    // };
     const course: Course = this.addressForm.value;
     course.tags = this.tags;
+    console.log('Course: ', course);
     this.coursesService
       .createCourse(course)
       .subscribe((response) => console.log('reponse for create', response));

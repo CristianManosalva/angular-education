@@ -9,9 +9,10 @@ import { MaterialModule } from './../material/material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CourseAdminComponent } from './components/course-admin/course-admin.component';
+import { CourseTableComponent } from './components/course-table/course-table.component';
 
 @NgModule({
-  declarations: [CourseFormComponent, NavComponent, CourseAdminComponent],
+  declarations: [CourseFormComponent, NavComponent, CourseAdminComponent, CourseTableComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
