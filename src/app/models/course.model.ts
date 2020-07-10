@@ -12,3 +12,8 @@ export interface Course {
   dateLine: string;
   id: number;
 }
+
+export interface Category {
+  id: number;
+  name: string;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
-import { Course } from '../../../models/course.model';
+import { Course, Category } from '../../../models/course.model';
 import { CoursesService } from '../../../core/services/courses.service';
 
 @Component({
@@ -10,10 +11,21 @@ import { CoursesService } from '../../../core/services/courses.service';
 })
 export class CoursesComponent implements OnInit {
   courses: Course[];
-  constructor(private coursesService: CoursesService) {}
+  categoryField: FormControl;
+  categories: Category[] = [];
+  categoryId = null;
+  laodingCourses = false;
+
+  constructor(private coursesService: CoursesService) {
+    this.categoryField = new FormControl();
+    this.categoryField.valueChanges.subscribe((value) =>
+      this.fetchCoursesByCategory(value)
+    );
+  }
 
   ngOnInit(): void {
     this.fetchCourses();
+    this.fetchcategories();
     // console.log('Here: ', this.fetchCourses());
   }
 
@@ -22,8 +34,24 @@ export class CoursesComponent implements OnInit {
   }
 
   fetchCourses(): void {
+    this.laodingCourses = true;
+    this.coursesService.getAll().subscribe((response) => {
+      this.courses = response;
+      setTimeout(() => (this.laodingCourses = false), 100);
+    });
+  }
+
+  fetchcategories(): void {
     this.coursesService
-      .getAll()
-      .subscribe((response) => (this.courses = response));
+      .getAllCategories()
+      .subscribe((response) => (this.categories = response));
+  }
+
+  fetchCoursesByCategory(id: number): void {
+    this.laodingCourses = true;
+    this.coursesService.getByCategory(id).subscribe((response) => {
+      this.courses = response;
+      setTimeout(() => (this.laodingCourses = false), 100);
+    });
   }
 }

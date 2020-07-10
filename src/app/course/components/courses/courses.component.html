@@ -1,11 +1,40 @@
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-    <div class="courses_list_container">
-      <app-course
-        *ngFor="let course of courses; index as i"
-        (courseSeen)="addCourseSeen($event)"
-        [course]="course"
-      ></app-course>
+<div class="custom-container">
+  <section class="course_list_acctions_section">
+    <div class="row">
+      <div class="col-xs-12">
+        <mat-form-field>
+          <mat-label>Categorias</mat-label>
+          <mat-select [formControl]="categoryField">
+            <mat-option>Todas</mat-option>
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category.id"
+            >
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </section>
+  <div *ngIf="laodingCourses" class="course_list_loader_container">
+    <div class="lds-facebook">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
+  <section *ngIf="!laodingCourses" class="course_list_section">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="courses_list_container">
+          <app-course
+            *ngFor="let course of courses; index as i"
+            (courseSeen)="addCourseSeen($event)"
+            [course]="course"
+          ></app-course>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
