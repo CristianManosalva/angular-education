@@ -8,6 +8,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 
 import { CourseRoutingModule } from './product-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [CourseComponent, CourseDetailComponent, CoursesComponent],
@@ -16,6 +17,7 @@ import { MaterialModule } from '../material/material.module';
     CourseRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
 })
 export class CourseModule {}

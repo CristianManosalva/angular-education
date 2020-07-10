@@ -17,13 +17,7 @@
       </div>
     </div>
   </section>
-  <div *ngIf="laodingCourses" class="course_list_loader_container">
-    <div class="lds-facebook">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  <app-loader-facebook *ngIf="laodingCourses"></app-loader-facebook>
   <section *ngIf="!laodingCourses" class="course_list_section">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">

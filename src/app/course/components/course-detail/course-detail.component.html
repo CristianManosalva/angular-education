@@ -1,6 +1,7 @@
+<app-loader-facebook *ngIf="!course"></app-loader-facebook>
 <div class="custom-container" *ngIf="course">
   <!-- <div class="row"> -->
-  <section>
+  <section style="margin: 2rem 0;">
     <div class="banner-crop-image">
       <img [src]="course.picture" [alt]="course.title" />
     </div>
